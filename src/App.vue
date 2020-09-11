@@ -12,7 +12,23 @@
 </template>
 
 <style>
+body{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.eventtype{
+  justify-content: center;
+  max-width: 40vw;
+  border: 3px black solid;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+
+}
 #app {
+  
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
