@@ -1,11 +1,14 @@
 <template>
   <div v-if="activity" class="eventtype">
-    <a :href="activity.info_url"><h3>{{activity.name.fi}}</h3></a>
+    <a :href="activity.info_url">
+      <h3>{{activity.name.fi}}</h3>
+    </a>
 
     <h5>{{activity.where_when_duration.where_and_when}}</h5>
     <div v-html="activity.description.body"></div>
     <button>Participate</button>
     <button>Interested</button>
+    <img loading=lazy class="thumbnail" :src="activity.description.images[0].url">
   </div>
   <p v-else>loading.....</p>
 </template>
