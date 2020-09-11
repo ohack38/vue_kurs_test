@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" >
     <Activity v-bind:activities="activities"/> 
   </div>
 </template>
@@ -24,9 +24,8 @@ export default {
     //baseUrl: open-api.myhelsinki.fi/v1/
     axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/activities/`)
       //filling the array with fetched data
-      .then(res => this.activities = res.data.data )
-      .catch(err => console.log(err))
-
+      .then(res => this.activities = res.data.data)
+   .catch(err => console.log(err))
   }
 }
 </script>

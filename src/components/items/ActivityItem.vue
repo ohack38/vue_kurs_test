@@ -5,7 +5,7 @@
         <a :href="activity.info_url">{{activity.info_url}}</a>
         <button>Participate</button>
         <button>Interested</button>
-        <p>{{activity.description.body}}</p>
+        <p v-html="activity.description.body"></p>
         
     </div>
     <p v-else> loading.....</p>
