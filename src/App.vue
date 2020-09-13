@@ -11,9 +11,23 @@
 </template>
 
 <style>
-body {
-}
 @import url("https://fonts.googleapis.com/css2?family=Kufam&display=swap");
+
+body {
+  background-image: url("./assets/Background_Box_mosaiq_1920_1080.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x:hidden;
+  margin: 0;
+}
+.hello {
+  display: flex;
+  flex-direction: row;
+}
+.home{
+
+}
 .thumbnail {
   width: 100%;
   height: auto;
@@ -39,7 +53,14 @@ body {
 }
 
 #nav {
+  flex-direction: row;
+  justify-content: center;
+  top: 0;
   padding: 30px;
+  z-index: 100;
+  width: 100%;
+  height: 10%;
+  background-color: aliceblue;
 }
 
 #nav a {
