@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/events">Events</router-link>|
       <router-link to="/activities">Activities</router-link>|
-      <router-link to="/places">Places</router-link>
+      <router-link to="/places">Places</router-link>|
+      <router-link to="/register">Register</router-link>
     </div>
     <router-view />
   </div>
