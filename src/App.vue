@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/events">Events</router-link>|
-      <router-link to="/activities">Activities</router-link>|
-      <router-link to="/places">Places</router-link>|
+      <router-link to="/">Home</router-link>
+      <router-link to="/events">Events</router-link>
+      <router-link to="/activities">Activities</router-link>
+      <router-link to="/places">Places</router-link>
       <router-link to="/register">Register</router-link>
     </div>
     <router-view />
@@ -64,7 +64,7 @@ body {
   top: 0;
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 4px;
   font-size: 2.5vh;
   justify-content: center;
   width: 100%;
@@ -75,6 +75,16 @@ body {
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+    background-color:lightgrey;
+  color: white;
+  border-radius: 15px 100px;
+  padding: 10px 17px;
+  margin: 7px;
+  border: none;
+}
+#nav a:hover{
+      background-color:lightgreen;
+
 }
 
 #nav a.router-link-exact-active {
