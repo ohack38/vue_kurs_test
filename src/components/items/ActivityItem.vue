@@ -4,7 +4,7 @@
       <h3>{{activity.name.fi}}</h3>
     </a>
 
-    <h5>{{activity.where_when_duration.where_and_when}}</h5>
+    <h5 class="timer">{{activity.where_when_duration.where_and_when}}</h5>
     <div v-html="activity.description.body"></div>
     <button>Participate</button>
     <button>Interested</button>

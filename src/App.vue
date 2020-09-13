@@ -14,19 +14,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Kufam&display=swap");
 
 body {
+  margin: 0;
+  overflow-x:hidden;
   background-image: url("./assets/Background_Box_mosaiq_1920_1080.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x:hidden;
-  margin: 0;
 }
+
 .hello {
   display: flex;
   flex-direction: row;
 }
-.home{
-
+.home {
 }
 .thumbnail {
   width: 100%;
@@ -35,32 +36,39 @@ body {
 }
 
 .eventtype {
-  max-width: 40vw;
+  max-width: 70vw;
   border: 3px black solid;
+  background-color: lightcyan;
   border-radius: 20px;
   padding: 20px;
   margin: 20px;
+}
+
+.timer {
+  font-size: 1rem;
 }
 #app {
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-family: "Kufam", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  justify-content: space-between;
+  font-family: "Kufam", sans-serif;
   color: #2c3e50;
+  left: 0px;
 }
 
 #nav {
-  flex-direction: row;
-  justify-content: center;
+  position: sticky;
   top: 0;
-  padding: 30px;
-  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  font-size: 2.5vh;
+  justify-content: center;
   width: 100%;
-  height: 10%;
-  background-color: aliceblue;
+  height: 15%;
+  background-color: white;
 }
 
 #nav a {
