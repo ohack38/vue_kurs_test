@@ -13,7 +13,7 @@
 
 <script>
 export default {
-name: 'Log in',
+name: 'Home',
    data() {
     return {
       input: {
