@@ -7,7 +7,7 @@
         <button>Interested</button>
         <p>{{place.description.body}}</p>
         <img loading=lazy class="thumbnail" :src="place.description.images[0].url">
-
+      
         
     </div>
     <p v-else> loading.....</p>

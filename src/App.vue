@@ -37,7 +37,7 @@ body {
 }
 
 .eventtype {
-  max-width: 70vw;
+  max-width: 50vw;
   border: 3px black solid;
   background-color: lightcyan;
   border-radius: 20px;
