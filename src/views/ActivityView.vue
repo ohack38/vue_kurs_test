@@ -17,7 +17,7 @@ export default {
   data(){
     return{
       activities: [],
-      limit: 1,
+      limit: 10,
       busy: false
     }
   },
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     loadMore() {
-      console.log("Adding 10 more data results");
+      console.log();
       this.busy = true;
       const proxy = "https://cors-anywhere.herokuapp.com/";
       //baseUrl: open-api.myhelsinki.fi/v1/
