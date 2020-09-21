@@ -28,8 +28,7 @@ body {
   display: flex;
   flex-direction: row;
 }
-.home {
-}
+
 .thumbnail {
   width: 100%;
   height: auto;

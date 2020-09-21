@@ -1,11 +1,11 @@
 <template>
-  <div class="hello" >
+  <div class="hello" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
     <Activity v-bind:activities="activities"/> 
   </div>
 </template>
 
 <script>
-
+import infiniteScroll from 'vue-infinite-scroll'
 import axios from 'axios'
 import Activity from '../components/Activity'
 
@@ -16,16 +16,39 @@ export default {
   },
   data(){
     return{
-      activities: []
+      activities: [],
+      limit: 1,
+      busy: false
+    }
+  },
+  directives:{
+    infiniteScroll
+  },
+  methods: {
+    loadMore() {
+      console.log("Adding 10 more data results");
+      this.busy = true;
+      const proxy = "https://cors-anywhere.herokuapp.com/";
+      //baseUrl: open-api.myhelsinki.fi/v1/
+      axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/activities/`)
+        .then(res => {
+          const append = res.data.data.slice(
+            this.activities.length,
+            this.activities.length + this.limit
+          );
+          this.activities = this.activities.concat(append);
+          this.busy = false;
+          });
     }
   },
   created(){
-    const proxy = "https://cors-anywhere.herokuapp.com/";
-    //baseUrl: open-api.myhelsinki.fi/v1/
-    axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/activities/`)
-      //filling the array with fetched data
-      .then(res => this.activities = res.data.data)
-   .catch(err => console.log(err))
+    this.loadMore();
+    // const proxy = "https://cors-anywhere.herokuapp.com/";
+    // //baseUrl: open-api.myhelsinki.fi/v1/
+    // axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/activities/?limit=10`)
+    //   //filling the array with fetched data
+    //   .then(res => this.activities = res.data.data)
+    //   .catch(err => console.log(err))
   }
 }
 </script>
