@@ -6,7 +6,10 @@
     <div class="form">
     <input type="text" name="username" v-model="input.username" placeholder="Användarnamn" /><br>
     <input type="password" name="password" v-model="input.password" placeholder="Lösenord" /><br>
-    <button type="button">Log in</button>
+    <button type="button">Log in</button><br>
+
+    <h2>Log in with QR code</h2>
+    <img src="../assets/QR.png" alt="QRcode"><br>
     </div>
   </div>
 </template>
