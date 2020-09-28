@@ -7,10 +7,17 @@
     <input type="text" name="username" v-model="input.username" placeholder="Användarnamn" /><br>
     <input type="password" name="password" v-model="input.password" placeholder="Lösenord" /><br>
     <button type="button">Log in</button><br>
+    </div>
 
     <h2>Log in with QR code</h2>
-    <img src="../assets/QR.png" alt="QRcode"><br>
-    </div>
+    <img src="../assets/QR.png" alt="QRcode" width="250x"><br>
+
+    <h2>Log in with social media</h2>
+    
+    <button type="button" class="smButton"><img src="../assets/fbLogo.png" alt="fblogo" width="50px"></button>
+    <button type="button" class="smButton"><img src="../assets/instaLogo.png" alt="fblogo" width="50px"></button>
+    <button type="button" class="smButton"><img src="../assets/twitterLogo.png" alt="fblogo" width="50px"></button>
+    <button type="button" class="smButton"><img src="../assets/linkedinLogo.png" alt="fblogo" width="50px"></button>
   </div>
 </template>
 
@@ -57,6 +64,15 @@ button{
 }
 button:hover {
     background-image: linear-gradient(to right, green, lightgreen);
+}
+
+.smButton{
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+}
+.smButton:hover{
+background: white;
 }
 
 .form {
