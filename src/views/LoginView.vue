@@ -1,10 +1,11 @@
 <template>
-<div id="register">
-    <h1>Logga in</h1>
-    <input type="text" name="username" v-model="input.username" placeholder="Användarnamn" /><br>
-    <input type="password" name="password" v-model="input.password" placeholder="Lösenord" /><br>
-    <input type="email" name="email" v-model="input.email" placeholder="Epost" /><br>
-    <button type="button">Logga in</button>
+<div id="profile">
+    <h1>Profile</h1>
+
+    <img src="/assets/anon.jpg" width="500" height="600">
+
+    
+
 </div>
 </template>
 <script>
