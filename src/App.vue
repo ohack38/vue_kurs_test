@@ -6,6 +6,7 @@
       <router-link to="/activities">Activities</router-link>
       <router-link to="/places">Places</router-link>
       <router-link to="/register">Register</router-link>
+      <router-link to="/login">Log in</router-link>
     </div>
     <router-view />
   </div>

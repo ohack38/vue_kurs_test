@@ -8,6 +8,8 @@
     <div v-html="event.description.body"></div>
     <button>Join Event</button>
     <button>Interested</button>
+
+
   </div>
   <p v-else>loading.....</p>
 </template>
@@ -16,7 +18,7 @@
 export default {
   name: "EventItem",
   props: ["event"],
-};
+}
 </script>
 
 <style scoped>
