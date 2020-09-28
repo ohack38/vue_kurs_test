@@ -7,7 +7,7 @@
 <script>
 import infiniteScroll from 'vue-infinite-scroll'
 import axios from 'axios'
-import Activity from '../components/Event'
+import Event from '../components/Event'
 
 export default {
   name: 'EventView',
@@ -30,7 +30,7 @@ export default {
       this.busy = true;
       const proxy = "https://cors-anywhere.herokuapp.com/";
       //baseUrl: open-api.myhelsinki.fi/v1/
-      axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/activities/`)
+      axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/events/`)
         .then(res => {
           const append = res.data.data.slice(
             this.events.length,
@@ -43,12 +43,6 @@ export default {
   },
   created(){
     this.loadMore();
-    // const proxy = "https://cors-anywhere.herokuapp.com/";
-    // //baseUrl: open-api.myhelsinki.fi/v1/
-    // axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/activities/?limit=10`)
-    //   //filling the array with fetched data
-    //   .then(res => this.activities = res.data.data)
-    //   .catch(err => console.log(err))
   }
 }
 </script>

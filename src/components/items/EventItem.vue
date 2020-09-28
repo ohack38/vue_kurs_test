@@ -8,7 +8,6 @@
     <div v-html="event.description.body"></div>
     <button>Join Event</button>
     <button>Interested</button>
-    <img loading=lazy class="thumbnail" :src="event.description.images[0].url">
   </div>
   <p v-else>loading.....</p>
 </template>
