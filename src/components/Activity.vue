@@ -1,7 +1,7 @@
 <template>
 <div>
     <div v-for="activity in activities" :key="activity.id">
-        <ActivityItem :activity="activity" />
+        <ActivityItem :activity="activity" v-on:add-part="$emit('add-part', activity.id)"/>
     </div>
 </div>
     

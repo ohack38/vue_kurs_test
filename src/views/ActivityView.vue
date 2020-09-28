@@ -1,6 +1,6 @@
 <template>
   <div class="hello" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
-    <Activity v-bind:activities="activities"/> 
+    <Activity v-bind:activities="activities" v-on:add-part="addPart"/> 
   </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
     return{
       activities: [],
       limit: 10,
-      busy: false
+      busy: false,
+      parts: []
     }
   },
   directives:{
@@ -39,8 +40,15 @@ export default {
           this.activities = this.activities.concat(append);
           this.busy = false;
           });
+    },
+    addPart(id){
+      alert(id + 'added to localStorage')
+      this.parts.push({id: this.parts.length, part: id});
+      localStorage.setItem('storage', JSON.stringify(this.parts))
+
     }
   },
+
   created(){
     this.loadMore();
     // const proxy = "https://cors-anywhere.herokuapp.com/";
