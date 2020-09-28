@@ -54,8 +54,8 @@ input[type=password] {
     box-sizing: border-box;
 }
 button{
-    width: inherit;
-    height: inherit;
+    width: 150px;
+    height: 50px;
     background-color: #424242;
     color: white;
     border: none;
