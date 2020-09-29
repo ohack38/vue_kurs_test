@@ -13,7 +13,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 
 button{
    width: 150px;
