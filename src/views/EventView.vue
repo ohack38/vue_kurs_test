@@ -3,9 +3,11 @@
     <div>
       <button id="games" @click="select" type="button">Games</button>
       <button id="theatre" @click="select" type="button">Theatre</button>
+      <button id="music" @click="select" type="button">Music</button>
+      <button id="fashion" @click="select" type="button">Fashion</button>
     </div>
-    
     <Event v-bind:events="events"/> 
+
   </div>
   
   
@@ -82,7 +84,7 @@ button{
     cursor: pointer;
     font-size: 45px;
 }
-button:hover{
-   background-color: #353434;
+button:hover {
+    background-image: linear-gradient(to right, green, lightgreen);
 }
 </style>
