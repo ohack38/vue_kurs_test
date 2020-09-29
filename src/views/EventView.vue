@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     loadMore() {
-      console.log();
       this.busy = true;
       const proxy = "https://cors-anywhere.herokuapp.com/";
       //baseUrl: open-api.myhelsinki.fi/v1/
@@ -42,7 +41,7 @@ export default {
           });
     },
     addPart(id){
-      alert(id + 'added to localStorage')
+      //alert(id + 'added to localStorage')
       this.parts.push({id: this.parts.length, part: id});
       localStorage.setItem('storage', JSON.stringify(this.parts))
 
