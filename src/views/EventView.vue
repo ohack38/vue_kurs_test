@@ -1,7 +1,14 @@
 <template>
-  <div class="hello" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
+  <div class="hello" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
+    <div>
+      <button id="games" @click="select" type="button">Games</button>
+      <button id="theatre" @click="select" type="button">Theatre</button>
+    </div>
+    
     <Event v-bind:events="events"/> 
   </div>
+  
+  
 </template>
 
 <script>
@@ -19,18 +26,22 @@ export default {
       events: [],
       limit: 10,
       parts: [],
-      busy: false
+      busy: false,
+      btnClicked: false
     }
+   
   },
   directives:{
     infiniteScroll
   },
   methods: {
-    loadMore() {
+    select: function(e){
+      let buttonID=e.currentTarget.id;
+      console.log(buttonID)
       this.busy = true;
       const proxy = "https://cors-anywhere.herokuapp.com/";
       //baseUrl: open-api.myhelsinki.fi/v1/
-      axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/events/`)
+      axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/events/?tags_search=`+buttonID)
         .then(res => {
           const append = res.data.data.slice(
             this.events.length,
@@ -39,23 +50,8 @@ export default {
           this.events = this.events.concat(append);
           this.busy = false;
           });
-    },
-    addPart(id){
-      //alert(id + 'added to localStorage')
-      this.parts.push({id: this.parts.length, part: id});
-      localStorage.setItem('storage', JSON.stringify(this.parts))
-
     }
   },
-  created(){
-    this.loadMore();
-    /*const proxy = "https://cors-anywhere.herokuapp.com/";
-    //baseUrl: open-api.myhelsinki.fi/v1/
-    axios.get(`${proxy}http://open-api.myhelsinki.fi/v1/events/`)
-      //filling the array with fetched data
-      .then(res => this.events = res.data.data )
-      .catch(err => console.log(err))*/
-  }
 
 }
 </script>
@@ -75,5 +71,19 @@ li {
 }
 a {
   color: #b94295;
+}
+button{
+   width: 150px;
+    height: 120px;
+    padding: 50px 250px;
+    margin: 5px;
+    background-color: #424242;
+    color: white;
+    border: 5px;
+    cursor: pointer;
+    font-size: 45px;
+}
+button:hover{
+   background-color: #353434;
 }
 </style>
