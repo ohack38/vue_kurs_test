@@ -1,16 +1,15 @@
 <template>
   <div v-if="event" class="eventtype">
-    <a :href="event.info_url">
-      <h3>{{event.name.fi}}</h3>
-    </a>
-
-    <h5 class="timer">{{event.where_when_duration.where_and_when}}</h5>
-    <div v-html="event.description.body"></div>
-    <button>Join Event</button>
-    <button>Interested</button>
-
-
-  </div>
+        <h3>{{event.name.fi}}</h3>
+        
+        <a :href="event.info_url">{{event.info_url}}</a><br>
+        <button>Participate</button>
+        <button>Interested</button>
+        <p>{{event.description.body}}</p>
+        <img loading=lazy class="thumbnail" :src="event.description.images[0].url">
+      
+        
+    </div>
   <p v-else>loading.....</p>
 </template>
 
