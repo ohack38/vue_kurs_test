@@ -26,10 +26,9 @@ export default {
       events: [],
       limit: 10,
       parts: [],
-      busy: false,
-      btnClicked: false
+      busy: false
     }
-   
+
   },
   directives:{
     infiniteScroll
