@@ -16,6 +16,8 @@
       <button class="pButton" type="button">myEvents</button>
       <button class="pButton" type="button">Contacts</button>
       <button class="pButton" type="button">Settings</button>
+      <button type="button">Logout</button><br />
+      <h2 style="text-decoration: underline">Privacy Policy</h2>
     </div>
   </div>
 </template>
@@ -43,16 +45,16 @@ button:hover {
 #innerProfile {
   display: flex;
   flex-direction: row;
-  background-image: linear-gradient(to right, salmon,rgba(255,255,255,0));
+  background-image: linear-gradient(to right, salmon, rgba(255, 255, 255, 0));
   padding: 10px;
   border: none;
   border-radius: 10px 10px;
 }
 .innerInfo {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }
 #profilePicture {
   max-width: 30%;
