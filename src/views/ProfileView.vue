@@ -2,12 +2,13 @@
 <div id="profile">
     <h1 style="font-size : 50px">Your profile</h1>
 
-    <img src="../assets/anon.jpg">
+    <img src="../assets/anon.jpg" height="200px">
     <br>
     <button type="button">Wallet</button>
     <button type="button">Events</button><br>
     <button type="button">Contacts</button>
     <button type="button">Settigs</button>
+    <h2 style="text-decoration: underline">Privacy Policy</h2>
 
 
 </div>
