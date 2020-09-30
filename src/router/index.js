@@ -52,6 +52,34 @@ const routes = [{
 
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/ProfileView.vue')
+    },
+    {
+        path: '/wallet',
+        name: 'WalletView',
+
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/WalletView.vue')
+    },
+    {
+        path: '/myevents',
+        name: 'MyeventsView',
+
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/MyeventsView.vue')
+    },
+    {
+        path: '/contacts',
+        name: 'ContactsView',
+
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/ContactsView.vue')
+    },
+    {
+        path: '/settings',
+        name: 'SettingsView',
+
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/SettingsView.vue')
     }
 ]
 
