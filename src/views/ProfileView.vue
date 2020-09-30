@@ -32,8 +32,6 @@
 button {
   width: 150px;
   height: 120px;
-  padding: 50px 250px;
-  margin: 5px;
   cursor: pointer;
   font-size: 45px;
 }
