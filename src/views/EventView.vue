@@ -1,12 +1,14 @@
 <template>
-  <div class="hello" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
-    <div>
+  <div class="eventItem" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
+    <div class="selectButtons">
       <button id="games" @click="select" type="button">Games</button>
       <button id="theatre" @click="select" type="button">Theatre</button>
       <button id="music" @click="select" type="button">Music</button>
-      <button id="fashion" @click="select" type="button">Fashion</button>
+      <button id="sports" @click="select" type="button">Sports</button>
     </div>
-    <Event v-bind:events="events"/> 
+    <div class="eventColumn">
+      <Event v-bind:events="events"/> 
+    </div>
 
   </div>
   
@@ -33,7 +35,7 @@ export default {
 
   },
   directives:{
-    infiniteScroll
+    infiniteScroll,
   },
   methods: {
     // Sök enligt kategori/tag
@@ -44,7 +46,7 @@ export default {
       if(div.length > 0){
         div.forEach(e => e.remove())
       }
-      
+
       let buttonID=e.currentTarget.id;
       console.log(buttonID)
       this.busy = true;
@@ -82,17 +84,33 @@ a {
   color: #b94295;
 }
 button{
-   width: 150px;
-    height: 120px;
-    padding: 50px 250px;
-    margin: 5px;
-    background-color: #424242;
-    color: white;
-    border: 5px;
-    cursor: pointer;
-    font-size: 45px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1vw;
+  color: white;
+  height: 100%;
+  background-color: salmon;
+  border-radius: 15px 100px;
+  padding: 10px 17px;
+  margin: 7px;
 }
 button:hover {
-    background-image: linear-gradient(to right, green, lightgreen);
+    background-image: linear-gradient(to right, salmon, white);
+}
+.eventItem{
+  display: flex;
+  flex-direction: row;
+}
+.selectButtons{
+  flex-direction: column;
+  height: 50px;
+  width: 150px;
+  position: fixed;
+  top: 40%;
+  left: 5%;
+}
+.eventColumn{
+  display: flex;
+  flex-direction: column;
 }
 </style>
