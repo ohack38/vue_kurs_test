@@ -4,10 +4,16 @@
     <div id="innerProfile">
       <img id="profilePicture" src="../assets/anon.jpg" />
       <div id="profileInfo">
-        <h2 class="innerInfo">Name</h2>
+        <h2 class="innerInfo">Name</h2> 
         <h2 class="innerInfo">City</h2>
         <h2 class="innerInfo">Events #</h2>
         <h2 class="innerInfo">Activity</h2>
+      </div>
+      <div id="profileText">
+          <p class="person">ProfileName</p>
+          <p class="person>">ProfileCity</p>
+          <p class="person">ProfileEvents</p>
+          <p class="person">ProfileActivty</p>
       </div>
     </div>
     <br />
@@ -50,6 +56,11 @@ button:hover {
   padding: 10px;
   border: none;
   border-radius: 10px 10px;
+}
+.profileText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .innerInfo {
   text-align: left;
