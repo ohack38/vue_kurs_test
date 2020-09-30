@@ -36,7 +36,15 @@ export default {
     infiniteScroll
   },
   methods: {
+    // Sök enligt kategori/tag
     select: function(e){
+      // Clear div före nytt sök
+      // works like a charm :)
+      let div = document.querySelectorAll(".eventtype");
+      if(div.length > 0){
+        div.forEach(e => e.remove())
+      }
+      
       let buttonID=e.currentTarget.id;
       console.log(buttonID)
       this.busy = true;
