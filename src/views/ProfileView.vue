@@ -16,8 +16,8 @@
       <button class="pButton" type="button">myEvents</button>
       <button class="pButton" type="button">Contacts</button>
       <button class="pButton" type="button">Settings</button>
-      <button type="button">Logout</button><br />
-      <h2 style="text-decoration: underline">Privacy Policy</h2>
+      <button class="pButton" type="button">Logout</button>
+      <h4 id="privacy" style="text-decoration: underline">Privacy Policy</h4>
     </div>
   </div>
 </template>
@@ -34,6 +34,7 @@ button {
 button:hover {
   background-image: linear-gradient(to right, salmon, white);
 }
+
 #profile {
   display: flex;
   flex-direction: column;
