@@ -22,7 +22,7 @@
       <button class="pButton" type="button" onclick="window.location.href='/myevents'">myEvents</button>
       <button class="pButton" type="button" onclick="window.location.href='/contacts'">Contacts</button>
       <button class="pButton" type="button" onclick="window.location.href='/settings'">Settings</button>
-      <button type="button">Logout</button><br />
+      <button class="pButton" type="button">Logout</button><br />
       <h2 style="text-decoration: underline">Privacy Policy</h2>
     </div>
   </div>
