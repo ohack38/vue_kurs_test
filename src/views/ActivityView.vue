@@ -42,8 +42,9 @@ export default {
           });
     },
     addPart(id){
+      //participate button i activityview emittar this funktionen 
       alert(id + 'added to localStorage')
-      this.parts.push({id: this.parts.length, part: id});
+      this.parts.push({id: this.parts.length, category: 'activities', part: id});
       localStorage.setItem('storage', JSON.stringify(this.parts))
 
     }
