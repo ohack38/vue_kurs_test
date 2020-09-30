@@ -8,7 +8,7 @@
     <div v-html="activity.description.body"></div>
     
     <button 
-        @click="$emit('add-part', activity.id); participate = !participate"
+        @click="$emit('add-part', activity.id, activity.name.fi, activity.where_when_duration.where_and_when, activity.description.body ); participate = !participate"
         v-bind:class="participate ? 'clickedColor' : 'defaultColor'" 
       >Participate</button>
 
