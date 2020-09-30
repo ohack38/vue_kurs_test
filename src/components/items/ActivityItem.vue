@@ -8,11 +8,11 @@
     <div v-html="activity.description.body"></div>
     
     <button 
-        @click="$emit('add-part', activity.id, activity.name.fi, activity.where_when_duration.where_and_when, activity.description.body ); participate = !participate"
+        @click="myMethod(); participate = !participate"
         v-bind:class="participate ? 'clickedColor' : 'defaultColor'" 
       >Participate</button>
 
-    <button @click='myMethod(); interested = !interested' v-bind:class="interested ? 'clickedColor' : 'defaultColor'">Interested</button>
+    <button @click="$emit('add-event', activity.id, activity.name.fi, activity.where_when_duration.where_and_when, activity.description.body, activity.info_url ); interested = !interested" v-bind:class="interested ? 'clickedColor' : 'defaultColor'">Interested</button>
     <img loading=lazy class="thumbnail" :src="activity.description.images[0].url">
   </div>
   <p v-else>loading.....</p>
