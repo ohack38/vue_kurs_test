@@ -1,4 +1,20 @@
 <template>
+<<<<<<< HEAD
+<div id="profile">
+    <h1 style="font-size : 50px">Your profile</h1>
+
+    <img src="../assets/profile.png" height="300px">
+    <br>
+    <button type="button">Wallet</button><br>
+    <button type="button">Contacts</button><br>
+    <button type="button">Events</button><br>
+    <button type="button" onclick="window.location.href='/settings'">Settings</button><br>
+    <button type="button">Logout</button><br>
+    <h2 style="text-decoration: underline">Privacy Policy</h2>
+
+
+</div>
+=======
   <div id="profile">
     <h1 style="font-size: 50px">My User Profile</h1>
     <div id="innerProfile">
@@ -22,10 +38,11 @@
       <button class="pButton" type="button">myEvents</button>
       <button class="pButton" type="button">Contacts</button>
       <button class="pButton" type="button">Settings</button>
-      <button class="pButton" type="button">Logout</button>
-      <h4 id="privacy" style="text-decoration: underline">Privacy Policy</h4>
+      <button type="button">Logout</button><br />
+      <h2 style="text-decoration: underline">Privacy Policy</h2>
     </div>
   </div>
+>>>>>>> 7f022fb1eca2e6365a7532326d0fe6a0c9bda683
 </template>
 
 <style scoped>
@@ -40,7 +57,6 @@ button {
 button:hover {
   background-image: linear-gradient(to right, salmon, white);
 }
-
 #profile {
   display: flex;
   flex-direction: column;
