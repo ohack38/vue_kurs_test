@@ -1,10 +1,14 @@
 <template>
   <div class="eventItem" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
     <div class="selectButtons">
+      <button id="art" @click="select" type="button">Art</button>
+      <button id="culture" @click="select" type="button">Culture</button>
+      <button id="families" @click="select" type="button">Family</button>
       <button id="games" @click="select" type="button">Games</button>
-      <button id="theatre" @click="select" type="button">Theatre</button>
       <button id="music" @click="select" type="button">Music</button>
+      <button id="theatre" @click="select" type="button">Theatre</button>
       <button id="sports" @click="select" type="button">Sports</button>
+      
     </div>
     <div class="eventColumn">
       <Event v-bind:events="events"/> 
@@ -29,7 +33,7 @@ export default {
     return{
       events: [],
       limit: 10,
-      parts: [],
+      myEvents: [],
       busy: false
     }
 
@@ -46,9 +50,7 @@ export default {
       if(div.length > 0){
         div.forEach(e => e.remove())
       }
-
       let buttonID=e.currentTarget.id;
-      console.log(buttonID)
       this.busy = true;
       const proxy = "https://cors-anywhere.herokuapp.com/";
       //baseUrl: open-api.myhelsinki.fi/v1/
@@ -63,7 +65,11 @@ export default {
           });
     }
   },
-
+  addEvent(id, name, description, url){ 
+      alert(id + 'added to localStorage')
+      this.myEvents.push({ id: id, name: name, decription: description, url: url});
+      localStorage.setItem('storage', JSON.stringify(this.myEvents))
+  }
 }
 </script>
 
