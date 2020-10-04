@@ -1,16 +1,13 @@
 <template>
-    <div v-if="place" class="eventtype">
-        <h3>{{place.name.fi}}</h3>
-        
-        <a :href="place.info_url">{{place.info_url}}</a><br>
-        <button>Participate</button>
-        <button>Interested</button>
-        <p>{{place.description.body}}</p>
-        <img loading=lazy class="thumbnail" :src="place.description.images[0].url">
-      
-        
-    </div>
-    <p v-else> loading.....</p>
+  <div v-if="place" class="eventtype">
+    <a :href="place.info_url">
+      <h3>{{place.name.fi}}</h3> 
+    </a>
+    <div v-html="place.description.body"></div>
+    <img  v-if="place.description.images[0]" loading=lazy class="thumbnail" :src="place.description.images[0].url">
+
+  </div>
+  <p v-else>loading.....</p>
 </template>
 
 <script>
