@@ -19,7 +19,7 @@ export default {
       activities: [],
       limit: 10,
       busy: false,
-      parts: []
+      myEvents: []
     }
   },
   directives:{
@@ -41,10 +41,11 @@ export default {
           this.busy = false;
           });
     },
-    addPart(id){
+    addEvent(id, name, when_where, description, url){
+      //participate button i activityview emittar this funktionen 
       alert(id + 'added to localStorage')
-      this.parts.push({id: this.parts.length, part: id});
-      localStorage.setItem('storage', JSON.stringify(this.parts))
+      this.myEvents.push({ id: id, name: name, when_where: when_where, decription: description, url: url});
+      localStorage.setItem('storage', JSON.stringify(this.myEvents))
 
     }
   },

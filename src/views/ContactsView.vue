@@ -1,8 +1,10 @@
 <template>
   <div id="profile">
-    <h1 style="font-size: 50px">My User Profile</h1>
+
+    <h1 style="font-size: 50px">My Contacts</h1>
+
     <div id="innerProfile">
-      <img id="profilePicture" src="../assets/anon.jpg" />
+      <img id="profilePicture" src="../assets/profile.png" />
       <div id="profileInfo">
         <h2 class="innerInfo">Name</h2> 
         <h2 class="innerInfo">City</h2>
@@ -10,21 +12,49 @@
         <h2 class="innerInfo">Activity</h2>
       </div>
       <div id="profileText">
-          <p class="person">ProfileName</p>
-          <p class="person>">ProfileCity</p>
-          <p class="person">ProfileEvents</p>
-          <p class="person">ProfileActivty</p>
+          <p class="person"></p>
+          <p class="person>"></p>
+          <p class="person"></p>
+          <p class="person"></p>
       </div>
     </div>
-    <br />
-    <div id="profileLinks">
-      <button class="pButton" type="button" onclick="window.location.href='/wallet'">Wallet</button>
-      <button class="pButton" type="button" onclick="window.location.href='/myevents'">myEvents</button>
-      <button class="pButton" type="button" onclick="window.location.href='/contacts'">Contacts</button>
-      <button class="pButton" type="button" onclick="window.location.href='/settings'">Settings</button>
-      <button class="pButton" type="button">Logout</button><br />
-      <h2 style="text-decoration: underline">Privacy Policy</h2>
+
+    <br>
+
+    <div id="innerProfile">
+      <img id="profilePicture" src="../assets/profile.png" />
+      <div id="profileInfo">
+        <h2 class="innerInfo">Name</h2> 
+        <h2 class="innerInfo">City</h2>
+        <h2 class="innerInfo">Events #</h2>
+        <h2 class="innerInfo">Activity</h2>
+      </div>
+      <div id="profileText">
+          <p class="person"></p>
+          <p class="person>"></p>
+          <p class="person"></p>
+          <p class="person"></p>
+      </div>
     </div>
+
+    <br>
+
+    <div id="innerProfile">
+      <img id="profilePicture" src="../assets/profile.png" />
+      <div id="profileInfo">
+        <h2 class="innerInfo">Name</h2> 
+        <h2 class="innerInfo">City</h2>
+        <h2 class="innerInfo">Events #</h2>
+        <h2 class="innerInfo">Activity</h2>
+      </div>
+      <div id="profileText">
+          <p class="person"></p>
+          <p class="person>"></p>
+          <p class="person"></p>
+          <p class="person"></p>
+      </div>
+    </div>
+    
   </div>
 </template>
 

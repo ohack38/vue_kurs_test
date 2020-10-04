@@ -8,11 +8,18 @@
     <div v-html="activity.description.body"></div>
     
     <button 
-        @click="$emit('add-part', activity.id); participate = !participate"
-        v-bind:class="participate ? 'clickedColor' : 'defaultColor'" 
-      >Participate</button>
+      @click="participate = !participate; "
+      v-bind:class="participate ? 'clickedColor' : 'defaultColor'" 
+      >
+      <a 
+        :href="activity.info_url" target="_blank"
+      
+      >
+        <p>Participate</p>
+      </a>
+    </button>
 
-    <button @click='myMethod(); interested = !interested' v-bind:class="interested ? 'clickedColor' : 'defaultColor'">Interested</button>
+    <button @click="$emit('add-event', activity.id, activity.name.fi, activity.where_when_duration.where_and_when, activity.description.body, activity.info_url ); interested = !interested" v-bind:class="interested ? 'clickedColor' : 'defaultColor'">Interested</button>
     <img loading=lazy class="thumbnail" :src="activity.description.images[0].url">
   </div>
   <p v-else>loading.....</p>
@@ -29,9 +36,7 @@ export default {
     }
   },
   methods:{
-    myMethod(){
-      alert('sup')
-    },
+    
 
   },
   
@@ -44,6 +49,7 @@ button {
   padding: 10px 20px;
   margin: 20px;
   border: none;
+  cursor: pointer;
 }
 .defaultColor{
   background-color: #42b983;
@@ -53,4 +59,10 @@ button {
   background-color: #707271;
   color: white;
 }
+a{
+  text-decoration: none;
+  color: white;
+
+}
+
 </style>
