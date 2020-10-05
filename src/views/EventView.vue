@@ -1,6 +1,7 @@
 <template>
   <div class="eventItem" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
     <div class="selectButtons">
+      <h3>Search events by category</h3>
       <button id="art" @click="select" type="button">Art</button>
       <button id="culture" @click="select" type="button">Culture</button>
       <button id="families" @click="select" type="button">Family</button>
@@ -146,7 +147,7 @@ button:hover {
   height: 50px;
   width: 150px;
   position: fixed;
-  top: 30%;
+  top: 10%;
   left: 5%;
 }
 .eventColumn{
