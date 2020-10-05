@@ -51,6 +51,17 @@ export default {
       if(div.length > 0){
         div.forEach(e => e.remove())
       }
+      
+      // Kollar ifall en knapp med klassen finns och resertar klassen
+      // säätä länge med v-binds men fick int de o funka..
+      // feel free to change om ni hittar på någo bättre sätt ¯\_(ツ)_/¯
+      if(document.getElementsByClassName("greenButton")[0]){
+        document.getElementsByClassName("greenButton")[0].className = "";
+      }
+
+      // byter klickade buttons class
+      e.currentTarget.className = "greenButton"
+
       let buttonID=e.currentTarget.id;
       this.busy = true;
       const proxy = "https://cors-anywhere.herokuapp.com/";
@@ -64,19 +75,18 @@ export default {
           );
           this.events = this.events.concat(append);
           this.busy = false;
-          this.searchID = buttonID
           });
     },
-    addEvent(id, name, description, url){ 
-      alert(id + 'added to localStorage')
-      this.myEvents.push({ id: id, name: name, decription: description, url: url});
+    addEvent(id, name,when_where, description, url){ 
+      alert("Event added to my events")
+      this.myEvents.push({ id: id, when_where: when_where, name: name, decription: description, url: url});
       localStorage.setItem('storage', JSON.stringify(this.myEvents))
     },
     loadMore() {
       // Infinite scroll, laddar in 'art' kategorin allra först med this.searchID
       // när man klickar på en knapp uppdateras this.searchID till knappens ID
       // för att fortsätta infinite scroll med rätt kategori 
-
+      console.log()
       this.busy = true;
       const proxy = "https://cors-anywhere.herokuapp.com/";
       //baseUrl: open-api.myhelsinki.fi/v1/
@@ -89,8 +99,9 @@ export default {
           this.events = this.events.concat(append);
           this.busy = false;
           });
-    }
-  },
+    },
+
+  }
   
 }
 </script>
@@ -142,7 +153,7 @@ button:hover {
   display: flex;
   flex-direction: column;
 }
-.activeButton{
+.greenButton{
   background-color: green;
 }
 </style>
