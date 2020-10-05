@@ -11,10 +11,7 @@
       @click="participate = !participate; "
       v-bind:class="participate ? 'clickedColor' : 'defaultColor'" 
       >
-      <a 
-        :href="activity.info_url" target="_blank"
-      
-      >
+      <a :href="activity.info_url" target="_blank">
         <p>Participate</p>
       </a>
     </button>
@@ -34,10 +31,6 @@ export default {
       participate: false,
       interested: false
     }
-  },
-  methods:{
-    
-
   },
   
 };

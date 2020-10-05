@@ -1,6 +1,6 @@
 <template>
   <div class="hello" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
-    <Activity v-bind:activities="activities" v-on:add-part="addPart"/> 
+    <Activity v-bind:activities="activities" v-on:add-event="addEvent"/> 
   </div>
 </template>
 

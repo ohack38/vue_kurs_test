@@ -1,5 +1,27 @@
 <template>
   <div id="myevents">
-      <h1>My Events</h1>
-      </div>
-      </template>
+      <MyEvents :eventItems="eventItems"/>
+  </div>
+</template>
+
+<script>
+
+import MyEvents from '../components/MyEvents'
+
+export default {
+  name: 'MyEventsView',
+  components:{
+    MyEvents
+  },
+  data(){
+    return{
+      eventItems: []
+    }
+  },
+  mounted(){
+    if(localStorage.getItem('storage')){
+      this.eventItems = JSON.parse(localStorage.getItem('storage'))
+    }
+  }
+}
+</script>
