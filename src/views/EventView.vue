@@ -146,7 +146,7 @@ button:hover {
   height: 50px;
   width: 150px;
   position: fixed;
-  top: 40%;
+  top: 30%;
   left: 5%;
 }
 .eventColumn{
