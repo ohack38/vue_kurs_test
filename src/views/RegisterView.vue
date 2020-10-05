@@ -5,10 +5,13 @@
     <input type="password" name="password" v-model="input.password" placeholder="Lösenord" /><br>
     <input type="email" name="email" v-model="input.email" placeholder="Epost" /><br>
     <input type="number" name="zip" v-model="input.zip" placeholder="Postnummer" /><br>
-    <button type="button">Registrera</button>
+    <button @click="register" type="button">Registrera</button>
 </div>
 </template>
 <script>
+let users
+let usernames
+
     export default {
         name: 'register',
         data() {
@@ -18,7 +21,26 @@
                     password: "",
                     email: "",
                     zip: ""
+                },
+                registered:[]
+                
+                
+            }
+        },
+        methods:{
+            register(){
+                users = JSON.parse(localStorage.getItem('users'))
+                usernames = users.map(user => user.username)
+                if(!usernames.includes(this.input.username)){
+                    this.registered = users
+                    this.registered.push(this.input)
+                    localStorage.setItem('users', JSON.stringify(this.registered))
+                    alert(this.input.username + ' registered')
+                }else{
+                    alert('Username already exists')
                 }
+                
+                
             }
         }
     }
