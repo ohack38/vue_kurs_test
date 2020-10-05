@@ -1,25 +1,29 @@
 <template>
   <div class="hello" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
     <div style="height:100%; vertical-align:center" v-if="loading">
-    <svg
-      class="progress-ring"
-      width="120"
-      height="120"
-      >
-    <circle
-      class="progress-ring__circle"
-      stroke="white"
-      stroke-width="5"
-      fill="transparent"
-      r="52"
-      cx="60"
-      cy="60"/>
+    <svg id="loading-svg" class="progress-ring" width="240" height="240">
+      
+      <linearGradient id="linear">
+        <stop offset="25%" stop-color="#ffffff" stop-opacity="1"/>
+         <stop offset="50%" stop-color="#ffffff" stop-opacity=".75"/>
+         <stop offset="65%" stop-color="#ffffff" stop-opacity=".5"/>
+         <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+
+        <circle
+          class="progress-ring_circle"
+          stroke="url(#linear)"
+          stroke-width="7"
+          fill="transparent"
+          r="60"
+          cx="120"
+          cy="120"/>       
 
         <animateTransform 
           attributeName="transform" 
           attributeType="XML" 
           type="rotate"
-          dur="4s" 
+          dur="2s" 
           from="0 0 0"
           to="360 0 0" 
           repeatCount="indefinite" />
@@ -90,8 +94,9 @@ li {
 a {
   color: #42b983;
 }
-.progress-ring__circle {
-  stroke-dasharray: 10 20;
+.progress-ring_circle {
+  stroke-dasharray: 280;
+  stroke-linecap: round;
 }
 
 </style>
