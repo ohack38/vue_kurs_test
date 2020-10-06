@@ -1,6 +1,5 @@
 <template>
   <div id="profile">
-        <h2 class="innerInfo">Events #</h2>
     <div v-if='logged'>
         <h1 style="font-size: 50px">My User Profile</h1>
         <div id="innerProfile">
