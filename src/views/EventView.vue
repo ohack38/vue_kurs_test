@@ -2,6 +2,7 @@
   <div class="eventItem" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" >
     <div class="selectButtons">
       <h3>Search events by category</h3>
+      <button id="" class="greenButton" @click="select" type="button">All Events</button>
       <button id="art" @click="select" type="button">Art</button>
       <button id="culture" @click="select" type="button">Culture</button>
       <button id="families" @click="select" type="button">Family</button>
@@ -13,6 +14,35 @@
     </div>
     <div class="eventColumn">
       <Event v-bind:events="events" v-on:add-event="addEvent"/> 
+    </div>
+    <div style="height:100%; vertical-align:center" v-if="loading">
+    <svg id="loading-svg" class="progress-ring" width="240" height="240">
+      
+      <linearGradient id="linear">
+        <stop offset="25%" stop-color="#ffffff" stop-opacity="1"/>
+         <stop offset="50%" stop-color="#ffffff" stop-opacity=".75"/>
+         <stop offset="65%" stop-color="#ffffff" stop-opacity=".5"/>
+         <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+
+        <circle
+          class="progress-ring_circle"
+          stroke="url(#linear)"
+          stroke-width="7"
+          fill="transparent"
+          r="60"
+          cx="120"
+          cy="120"/>       
+
+        <animateTransform 
+          attributeName="transform" 
+          attributeType="XML" 
+          type="rotate"
+          dur="2s" 
+          from="0 0 0"
+          to="360 0 0" 
+          repeatCount="indefinite" />
+      </svg>
     </div>
 
   </div>
@@ -36,7 +66,8 @@ export default {
       limit: 10,
       myEvents: [],
       busy: false,
-      searchID: "art"
+      searchID: "",
+      loading: true
     }
 
   },
@@ -52,7 +83,7 @@ export default {
       if(div.length > 0){
         div.forEach(e => e.remove())
       }
-      
+      this.loading = true
       // Kollar ifall en knapp med klassen finns och resertar klassen
       // säätä länge med v-binds men fick int de o funka..
       // feel free to change om ni hittar på någo bättre sätt ¯\_(ツ)_/¯
@@ -72,7 +103,8 @@ export default {
           const append = res.data.data.slice(
             this.events.length,
             this.events.length + this.limit,
-            this.searchID = buttonID
+            this.searchID = buttonID,
+            this.loading = false
           );
           this.events = this.events.concat(append);
           this.busy = false;
@@ -84,7 +116,8 @@ export default {
       localStorage.setItem('storage', JSON.stringify(this.myEvents))
     },
     loadMore() {
-      // Infinite scroll, laddar in 'art' kategorin allra först med this.searchID
+      // Infinite scroll, laddar in this.searchID, som är en empty string i början
+      // (I princip samma som att söka alla events)
       // när man klickar på en knapp uppdateras this.searchID till knappens ID
       // för att fortsätta infinite scroll med rätt kategori 
       console.log()
@@ -95,7 +128,8 @@ export default {
         .then(res => {
           const append = res.data.data.slice(
             this.events.length,
-            this.events.length + this.limit
+            this.events.length + this.limit,
+            this.loading = false
           );
           this.events = this.events.concat(append);
           this.busy = false;
