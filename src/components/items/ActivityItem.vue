@@ -22,7 +22,7 @@
       interested = !interested" v-show="!interested">Interested</button>
 
     <!-- delete button-->
-    <button @click="$emit('del-event', activity.id); interested = interested" v-show="interested">Not interested?</button>
+    <button @click="$emit('del-event', activity.id); interested = !interested" v-show="interested">Not interested?</button>
     
     <img loading=lazy class="thumbnail" :src="activity.description.images[0].url">
   </div>

@@ -14,7 +14,7 @@
       interested = !interested" v-show="!interested" v-bind:class="interested ? 'clickedColor' : 'defaultColor'">
       Interested
     </button>
-    <button @click="$emit('del-event', event.id); interested = interested" v-show="interested">Not interested?</button>
+    <button @click="$emit('del-event', event.id); interested = !interested" v-show="interested">Not interested?</button>
     <img  v-if="event.description.images[0]" loading=lazy class="thumbnail" :src="event.description.images[0].url">
 
   </div>
