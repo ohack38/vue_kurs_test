@@ -5,6 +5,7 @@
         </a>
         <div v-html="eventItem.when_where"></div>
         <div v-html="eventItem.decription"></div>
+        <button @click="$emit('del-event', eventItem.id)">Not interested?</button>
     </div>
 </template>
 
@@ -14,3 +15,15 @@ export default {
     props: ['eventItem']
 }
 </script>
+
+<style scoped>
+    button {
+        border-radius: 100px 100px;
+        padding: 10px 20px;
+        margin: 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #42b983;
+        color: white;
+    }
+</style>

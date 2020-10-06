@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="eventItem in eventItems" :key="eventItem.id">
-            <MyEventsItem :eventItem="eventItem"/>
+            <MyEventsItem :eventItem="eventItem" v-on:del-event="$emit('del-event', eventItem.id)"/>
         </div>
     </div>
 </template>

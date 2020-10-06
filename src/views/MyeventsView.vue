@@ -1,6 +1,6 @@
 <template>
   <div id="myevents">
-      <MyEvents :eventItems="eventItems"/>
+      <MyEvents :eventItems="eventItems" v-on:del-event="deleteEvent"/>
   </div>
 </template>
 
@@ -16,6 +16,14 @@ export default {
   data(){
     return{
       eventItems: []
+    }
+  },
+  methods:{
+    deleteEvent(id){
+      this.eventItems = JSON.parse(localStorage.getItem('storage'))
+      this.eventItems = this.eventItems.filter(event => event.id !== id); 
+      localStorage.setItem('storage', JSON.stringify(this.eventItems))
+      
     }
   },
   mounted(){
