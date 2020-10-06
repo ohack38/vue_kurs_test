@@ -22,7 +22,9 @@
       </div>
       <div v-if="logged">
         <button @click="logout" type="button">Log out</button>
+        
       </div>
+
   </div>
     
 </template>

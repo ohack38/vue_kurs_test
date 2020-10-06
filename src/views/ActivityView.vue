@@ -3,7 +3,7 @@
   <div style="height:100%; vertical-align:center" v-if="loading">
     <Loading />
   </div>
-    <Activity v-bind:activities="activities" v-on:add-event="addEvent"/> 
+    <Activity v-bind:activities="activities" v-on:del-event="deleteEvent" v-on:add-event="addEvent"/> 
   </div>
 </template>
 
@@ -53,6 +53,12 @@ export default {
       this.myEvents.push({ id: id, name: name, when_where: when_where, decription: description, url: url});
       localStorage.setItem('storage', JSON.stringify(this.myEvents))
 
+    },
+    deleteEvent(id){
+      this.myEvents = JSON.parse(localStorage.getItem('storage'))
+      this.myEvents = this.myEvents.filter(event => event.id !== id); 
+      localStorage.setItem('storage', JSON.stringify(this.myEvents))
+      alert(id + ' deleted')
     }
   },
 

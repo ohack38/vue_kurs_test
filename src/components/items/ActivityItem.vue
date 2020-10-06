@@ -15,7 +15,7 @@
         <p>Participate</p>
       </a>
     </button>
-
+    <!-- toggle buttons to delete interest -->
     <button @click="$emit('add-event', activity.id, activity.name.fi, activity.where_when_duration.where_and_when, activity.description.body, activity.info_url ); interested = !interested" v-bind:class="interested ? 'clickedColor' : 'defaultColor'">Interested</button>
     <img loading=lazy class="thumbnail" :src="activity.description.images[0].url">
   </div>
