@@ -2,23 +2,29 @@
   <div class="home">
     <img class="logo" alt="Eventurous logo" src="../assets/Eventurous_Logo_600_150.png">
     <h1>Welcome</h1>
-    <h1>Please log in</h1>
-    <div class="form">
-    <input type="text" name="username" v-model="input.username" placeholder="Användarnamn" /><br>
-    <input type="password" name="password" v-model="input.password" placeholder="Lösenord" /><br>
-    <button @click="login" type="button">Log in</button><br>
-    </div>
+    <div v-if="!logged">
+      <h1>Please log in</h1>
+          <div class="form">
+              <input type="text" name="username" v-model="input.username" placeholder="Användarnamn" /><br>
+              <input type="password" name="password" v-model="input.password" placeholder="Lösenord" /><br>
+              <button @click="login" type="button">Log in</button><br>
+          </div>
 
-    <h2>Log in with QR code</h2>
-    <img src="../assets/QR.png" alt="QRcode" width="250x"><br>
+          <h2>Log in with QR code</h2>
+          <img src="../assets/QR.png" alt="QRcode" width="250x"><br>
 
-    <h2>Log in with social media</h2>
-    
-    <button type="button" class="smButton"><img src="../assets/fbLogo.png" alt="fblogo" width="50px"></button>
-    <button type="button" class="smButton"><img src="../assets/instaLogo.png" alt="iglogo" width="50px"></button>
-    <button type="button" class="smButton"><img src="../assets/twitterLogo.png" alt="twlogo" width="50px"></button>
-    <button type="button" class="smButton"><img src="../assets/linkedinLogo.png" alt="lilogo" width="50px"></button>
+          <h2>Log in with social media</h2>
+          
+          <button type="button" class="smButton"><img src="../assets/fbLogo.png" alt="fblogo" width="50px"></button>
+          <button type="button" class="smButton"><img src="../assets/instaLogo.png" alt="iglogo" width="50px"></button>
+          <button type="button" class="smButton"><img src="../assets/twitterLogo.png" alt="twlogo" width="50px"></button>
+          <button type="button" class="smButton"><img src="../assets/linkedinLogo.png" alt="lilogo" width="50px"></button>
+      </div>
+      <div v-if="logged">
+        <button @click="logout" type="button">Log out</button>
+      </div>
   </div>
+    
 </template>
 
 <script>
@@ -30,7 +36,8 @@ name: 'Home',
       input: {
        username: "",
        password: "",
-      }
+      },
+      logged: false
     }
   },
   methods:{
@@ -41,11 +48,18 @@ name: 'Home',
         let user = users.find(user => user.username == this.input.username)
         if(this.input.username == user.username && this.input.password == user.password){
           localStorage.setItem('logged', JSON.stringify(user));
-          alert('your logged')
+          this.logged = true
         }else alert('wrong username or password')
-        
       }      
+    },
+    logout(){
+      localStorage.removeItem('logged')
+      this.logged = false
     }
+  },
+  mounted(){
+    if(localStorage.getItem('logged')) this.logged = true
+    else this.logged = false
   }
 }
 </script>
