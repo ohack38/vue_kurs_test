@@ -144,8 +144,8 @@ button{
   font-style: italic;
   font-size: 1vw;
   color: white;
-  height: 50px;
-  width: 100px;
+  height: 70px;
+  width: 130px;
   background-color: salmon;
   border-radius: 15px 100px;
   padding: 10px 17px;
