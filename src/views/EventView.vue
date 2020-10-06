@@ -108,6 +108,7 @@ export default {
     },
     addEvent(id, name,when_where, description, url){ 
       alert("Event added to my events")
+      this.myEvents = JSON.parse(localStorage.getItem('storage'))
       this.myEvents.push({ id: id, when_where: when_where, name: name, decription: description, url: url});
       localStorage.setItem('storage', JSON.stringify(this.myEvents))
     },

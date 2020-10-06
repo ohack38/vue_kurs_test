@@ -50,6 +50,7 @@ export default {
     },
     addEvent(id, name, when_where, description, url){
       //participate button i activityview emittar this funktionen 
+      this.myEvents = JSON.parse(localStorage.getItem('storage'))
       this.myEvents.push({ id: id, name: name, when_where: when_where, decription: description, url: url});
       localStorage.setItem('storage', JSON.stringify(this.myEvents))
 

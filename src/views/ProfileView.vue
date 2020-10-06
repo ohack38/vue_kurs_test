@@ -1,32 +1,60 @@
 <template>
   <div id="profile">
-    <h1 style="font-size: 50px">My User Profile</h1>
-    <div id="innerProfile">
-      <img id="profilePicture" src="../assets/anon.jpg" />
-      <div id="profileInfo">
-        <h2 class="innerInfo">Name</h2> 
-        <h2 class="innerInfo">City</h2>
         <h2 class="innerInfo">Events #</h2>
-        <h2 class="innerInfo">Activity</h2>
-      </div>
-      <div id="profileText">
-          <p class="person">ProfileName</p>
-          <p class="person>">ProfileCity</p>
-          <p class="person">ProfileEvents</p>
-          <p class="person">ProfileActivty</p>
-      </div>
+    <div v-if='logged'>
+        <h1 style="font-size: 50px">My User Profile</h1>
+        <div id="innerProfile">
+          <img id="profilePicture" src="../assets/anon.jpg" />
+          <div id="profileInfo">
+            <h2 class="innerInfo">Username: {{this.user.username}}</h2> 
+            <h2 class="innerInfo">Email: {{this.user.email}}</h2>
+            <h2 class="innerInfo">zip code: {{this.user.zip}}</h2>
+            
+          </div>
+          
+        </div>
+        <br />
+        <div id="profileLinks">
+          <button class="pButton" type="button" onclick="window.location.href='/wallet'">Wallet</button>
+          <button class="pButton" type="button" onclick="window.location.href='/myevents'">myEvents</button>
+          <button class="pButton" type="button" onclick="window.location.href='/contacts'">Contacts</button>
+          <button class="pButton" type="button" onclick="window.location.href='/settings'">Settings</button>
+          <button class="pButton" type="button" @click="logout">Logout</button><br />
+          <h2 style="text-decoration: underline">Privacy Policy</h2>
+        </div>
     </div>
-    <br />
-    <div id="profileLinks">
-      <button class="pButton" type="button" onclick="window.location.href='/wallet'">Wallet</button>
-      <button class="pButton" type="button" onclick="window.location.href='/myevents'">myEvents</button>
-      <button class="pButton" type="button" onclick="window.location.href='/contacts'">Contacts</button>
-      <button class="pButton" type="button" onclick="window.location.href='/settings'">Settings</button>
-      <button class="pButton" type="button">Logout</button><br />
-      <h2 style="text-decoration: underline">Privacy Policy</h2>
+    <div v-if='!logged'>
+      <button class="pButton" onclick="window.location.href='/'">Log in</button>
     </div>
+    
   </div>
+
 </template>
+
+<script>
+export default {
+  name: 'ProfileView',
+  data(){
+    return {
+      user:[],
+      logged:false
+    }
+  },
+  methods:{
+    logout(){
+      localStorage.removeItem('logged')
+      this.logged = false
+    }
+  },
+  mounted(){
+      if(localStorage.getItem('logged')){
+        this.user = JSON.parse(localStorage.getItem('logged'))
+        this.logged = true
+      }
+    },
+}
+</script>
+
 
 <style scoped>
 button {
