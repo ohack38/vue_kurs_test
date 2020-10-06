@@ -9,8 +9,6 @@
 </div>
 </template>
 <script>
-let users
-let usernames
 
     export default {
         name: 'register',
@@ -23,14 +21,13 @@ let usernames
                     zip: ""
                 },
                 registered:[]
-                
-                
+            
             }
         },
         methods:{
             register(){
-                users = JSON.parse(localStorage.getItem('users'))
-                usernames = users.map(user => user.username)
+                let users = JSON.parse(localStorage.getItem('users'))
+                let usernames = users.map(user => user.username)
                 if(!usernames.includes(this.input.username)){
                     this.registered = users
                     this.registered.push(this.input)

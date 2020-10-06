@@ -6,7 +6,7 @@
     <div class="form">
     <input type="text" name="username" v-model="input.username" placeholder="Användarnamn" /><br>
     <input type="password" name="password" v-model="input.password" placeholder="Lösenord" /><br>
-    <button type="button">Log in</button><br>
+    <button @click="login" type="button">Log in</button><br>
     </div>
 
     <h2>Log in with QR code</h2>
@@ -15,13 +15,14 @@
     <h2>Log in with social media</h2>
     
     <button type="button" class="smButton"><img src="../assets/fbLogo.png" alt="fblogo" width="50px"></button>
-    <button type="button" class="smButton"><img src="../assets/instaLogo.png" alt="fblogo" width="50px"></button>
-    <button type="button" class="smButton"><img src="../assets/twitterLogo.png" alt="fblogo" width="50px"></button>
-    <button type="button" class="smButton"><img src="../assets/linkedinLogo.png" alt="fblogo" width="50px"></button>
+    <button type="button" class="smButton"><img src="../assets/instaLogo.png" alt="iglogo" width="50px"></button>
+    <button type="button" class="smButton"><img src="../assets/twitterLogo.png" alt="twlogo" width="50px"></button>
+    <button type="button" class="smButton"><img src="../assets/linkedinLogo.png" alt="lilogo" width="50px"></button>
   </div>
 </template>
 
 <script>
+
 export default {
 name: 'Home',
    data() {
@@ -30,6 +31,20 @@ name: 'Home',
        username: "",
        password: "",
       }
+    }
+  },
+  methods:{
+    login(){
+      let users = JSON.parse(localStorage.getItem('users'))
+      let usernames = users.map(user => user.username)
+      if(usernames.includes(this.input.username)){
+        let user = users.find(user => user.username == this.input.username)
+        if(this.input.username == user.username && this.input.password == user.password){
+          localStorage.setItem('logged', JSON.stringify(user));
+          alert('your logged')
+        }else alert('wrong username or password')
+        
+      }      
     }
   }
 }
