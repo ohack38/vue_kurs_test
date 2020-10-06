@@ -13,7 +13,7 @@
       
     </div>
     <div class="eventColumn">
-      <Event v-bind:events="events" v-on:add-event="addEvent"/> 
+      <Event v-bind:events="events" v-on:add-event="addEvent" v-on:del-event="deleteEvent"/> 
     </div>
     <div style="height:100%; vertical-align:center" v-if="loading">
       <Loading />
@@ -86,11 +86,6 @@ export default {
           this.busy = false;
           });
     },
-    addEvent(id, name,when_where, description, url){ 
-      alert("Event added to my events")
-      this.myEvents.push({ id: id, when_where: when_where, name: name, decription: description, url: url});
-      localStorage.setItem('storage', JSON.stringify(this.myEvents))
-    },
     loadMore() {
       // Infinite scroll, laddar in this.searchID, som är en empty string i början
       // (I princip samma som att söka alla events)
@@ -111,6 +106,17 @@ export default {
           this.busy = false;
           });
     },
+    addEvent(id, name,when_where, description, url){ 
+      alert("Event added to my events")
+      this.myEvents.push({ id: id, when_where: when_where, name: name, decription: description, url: url});
+      localStorage.setItem('storage', JSON.stringify(this.myEvents))
+    },
+    deleteEvent(id){
+      this.myEvents = JSON.parse(localStorage.getItem('storage'))
+      this.myEvents = this.myEvents.filter(event => event.id !== id); 
+      localStorage.setItem('storage', JSON.stringify(this.myEvents))
+      alert("Event deleted from my events")
+    }
 
   }
   
