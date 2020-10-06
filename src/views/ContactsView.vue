@@ -7,15 +7,13 @@
       <img id="profilePicture" src="../assets/profile.png" />
       <div id="profileInfo">
         <h2 class="innerInfo">Name</h2> 
-        <h2 class="innerInfo">City</h2>
-        <h2 class="innerInfo">Events #</h2>
-        <h2 class="innerInfo">Activity</h2>
+        <h2 class="innerInfo">Email</h2>
+        <h2 class="innerInfo">Zip code </h2>
       </div>
       <div id="profileText">
-          <p class="person"></p>
-          <p class="person>"></p>
-          <p class="person"></p>
-          <p class="person"></p>
+          <p class="person">g4lileo</p>
+          <p class="person>">galileo@resyst.com</p>
+          <p class="person">93004</p>
       </div>
     </div>
 
@@ -25,15 +23,14 @@
       <img id="profilePicture" src="../assets/profile.png" />
       <div id="profileInfo">
         <h2 class="innerInfo">Name</h2> 
-        <h2 class="innerInfo">City</h2>
-        <h2 class="innerInfo">Events #</h2>
-        <h2 class="innerInfo">Activity</h2>
+        <h2 class="innerInfo">Email</h2>
+        <h2 class="innerInfo">Zip code </h2>
       </div>
       <div id="profileText">
-          <p class="person"></p>
-          <p class="person>"></p>
-          <p class="person"></p>
-          <p class="person"></p>
+          <p class="person">putin</p>
+          <p class="person>">iamputin@russia.ru</p>
+          <p class="person">101000</p>
+          
       </div>
     </div>
 
@@ -43,15 +40,14 @@
       <img id="profilePicture" src="../assets/profile.png" />
       <div id="profileInfo">
         <h2 class="innerInfo">Name</h2> 
-        <h2 class="innerInfo">City</h2>
-        <h2 class="innerInfo">Events #</h2>
-        <h2 class="innerInfo">Activity</h2>
+        <h2 class="innerInfo">Email</h2>
+        <h2 class="innerInfo">Zip code </h2>
       </div>
       <div id="profileText">
-          <p class="person"></p>
-          <p class="person>"></p>
-          <p class="person"></p>
-          <p class="person"></p>
+          <p class="person">perolof52</p>
+          <p class="person>">perolof@gmail.com</p>
+          <p class="person">06400</p>
+          
       </div>
     </div>
     
